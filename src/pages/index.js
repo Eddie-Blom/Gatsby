@@ -8,7 +8,7 @@ const IndexPage = () => (
     <section className="hero">
       <div className="hero-content">
         <Container>
-          <h1>Välkommen till mitt portfolioprojekt</h1>
+          <h1>Portfolio Projekt</h1>
           {/* Annan önskad innehåll */}
         </Container>
       </div>

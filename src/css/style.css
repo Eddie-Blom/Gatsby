@@ -2,7 +2,7 @@
 body {
   background-color: #222; /* Uppdaterad bakgrundsfärg */
   color: #fff; /* Vit text för kontrast */
-  font-family: 'Roboto', sans-serif; /* Typsnitt för text */
+  font-family: "Roboto", sans-serif; /* Typsnitt för text */
   margin: 0; /* Ta bort marginaler för hela sidan */
 }
 
@@ -21,11 +21,6 @@ body {
   color: #aaf; /* Ändra färg på hover för länkar */
 }
 
-.footer {
-  background-color: #333; /* Uppdaterad färg för footer */
-  padding: 20px 0; /* Lite mer padding för fotern */
-}
-
 .footer p {
   margin-bottom: 0; /* Ta bort extra utrymme under texten i fotern */
 }
@@ -35,7 +30,7 @@ body {
   align-items: center; /* Centrerar vertikalt */
   justify-content: center; /* Centrerar horisontellt */
   height: 100vh; /* Anpassar höjden till hela vyhöjden */
-  background-image: url('../images/background_image.jpg');
+  background-image: url("../images/background_image.jpg");
   background-size: cover;
   background-position: center;
 }

@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 
 const Layout = ({ children }) => (
   <>
-    <Navbar bg="dark" variant="dark" expand="lg">
+     <Navbar expand="lg" style={{ backgroundColor: '#333', color: '#fff', transition: 'background-color 0.3s ease-in-out' }}>
       <Container>
         <Navbar.Brand as={Link} to="/">Eddie´s Portfolio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,7 +21,7 @@ const Layout = ({ children }) => (
 
     <main className="main-content">{children}</main>
 
-    <footer className="footer text-white text-center">
+    <footer className="footer text-center" style={{ backgroundColor: '#333', color: '#fff', padding: '20px 0' }}>
       <Container>
         <p>&copy; {new Date().getFullYear()} Eddie Sütcü</p>
         {/* Lägg till annan footer-information här */}
