@@ -1,17 +1,21 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
+import { Container } from "react-bootstrap"
+import "../css/style.css" // Importera din CSS-fil för att styla
 
-
-//react-component
-//alla componenter under /src/pages blir automatiskt sidor
-//sidans namn = namnet på javascript-filen (dock - index.js = sajtens första sida)
 const IndexPage = () => (
   <Layout>
-    <Link to="/portfolio">Se min portfolio</Link>
+    <section className="hero">
+      <div className="hero-content">
+        <Container>
+          <h1>Välkommen till mitt portfolioprojekt</h1>
+          {/* Annan önskad innehåll */}
+        </Container>
+      </div>
+    </section>
   </Layout>
 )
-//denna konstant sätter titeln på sidan
+
 export const Head = () => <title>Home Page</title>
 
 export default IndexPage;
