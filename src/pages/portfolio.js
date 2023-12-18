@@ -71,7 +71,7 @@ const PortfolioPage = () => {
                     <Button
                       variant="primary"
                       as={Link}
-                      to={`/${urlSlug}`} // Använd rätt URL här
+                      to={`/portfolio/${urlSlug}`} // Använd rätt URL här
                       className="mt-auto"
                     >
                       Läs mer
