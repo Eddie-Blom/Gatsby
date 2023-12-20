@@ -1,25 +1,9 @@
-import * as React from "react"
-import { graphql } from "gatsby"
+import React from "react"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
-import { Container } from "react-bootstrap"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
-
-export const query = graphql`
-  query ($urlSlug: String!) {
-    contentfulPortfolio(urlSlug: { eq: $urlSlug }) {
-      rubrik
-      fritext {
-        raw
-      }
-    }
-  }
-`
-
-const PortfolioPost = ({ data }) => {
-  const { rubrik, fritext } = data.contentfulPortfolio
-
+const HomeTemplate = ({ rubrik, bild, innehall }) => {
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
@@ -44,15 +28,13 @@ const PortfolioPost = ({ data }) => {
   }
 
   return (
-    <Layout>
-      <Container>
-        <h1>{rubrik}</h1>
-        <div>{renderRichText(fritext, options)}</div>
-      </Container>
-    </Layout>
+    <main>
+      <GatsbyImage image={bild.gatsbyImageData} alt={rubrik} />
+      <h1>{rubrik}</h1>
+      {/* Använd 'innehall' för att visa rich text-innehållet */}
+      <div>{renderRichText(innehall, options)}</div>
+    </main>
   )
 }
 
-export const Head = () => <title>Portfolio Post</title>
-
-export default PortfolioPost
+export default HomeTemplate
