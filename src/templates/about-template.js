@@ -2,6 +2,8 @@ import React from "react"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Container, Row, Col } from "react-bootstrap"
+import "../css/about.css"
 
 const AboutTemplate = ({ rubrik, bild, innehall }) => {
   const options = {
@@ -28,12 +30,27 @@ const AboutTemplate = ({ rubrik, bild, innehall }) => {
   }
 
   return (
-    <main>
-      <GatsbyImage image={bild.gatsbyImageData} alt={rubrik} />
-      <h1>{rubrik}</h1>
-      {/* Använd 'innehall' för att visa rich text-innehållet */}
-      <div>{renderRichText(innehall, options)}</div>
-    </main>
+    <div className="about-page">
+      <Container>
+        <Row>
+          <Col lg={6}>
+            <GatsbyImage
+              image={bild.gatsbyImageData}
+              alt={rubrik}
+              className="about-image"
+            />
+          </Col>
+          <Col lg={6}>
+            <div className="about-content">
+              <h1 className="about-title">{rubrik}</h1>
+              <div className="about-text">
+                {renderRichText(innehall, options)}
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 }
 

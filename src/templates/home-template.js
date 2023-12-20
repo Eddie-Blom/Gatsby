@@ -3,6 +3,8 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+import "../css/home.css"
+
 const HomeTemplate = ({ rubrik, bild, innehall }) => {
   const options = {
     renderMark: {
@@ -28,12 +30,13 @@ const HomeTemplate = ({ rubrik, bild, innehall }) => {
   }
 
   return (
-    <main>
+    <div className="image-container">
       <GatsbyImage image={bild.gatsbyImageData} alt={rubrik} />
-      <h1>{rubrik}</h1>
-      {/* Använd 'innehall' för att visa rich text-innehållet */}
-      <div>{renderRichText(innehall, options)}</div>
-    </main>
+      <div className="content-overlay">
+        <h1 className="title display-1">{rubrik}</h1>
+        <div className="content lead">{renderRichText(innehall, options)}</div>
+      </div>
+    </div>
   )
 }
 

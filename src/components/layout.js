@@ -13,7 +13,6 @@ const Layout = ({ children }) => (
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
-            {/* Lägg till fler länkar enligt behov */}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -24,7 +23,6 @@ const Layout = ({ children }) => (
     <footer className="footer text-center" style={{ backgroundColor: '#333', color: '#fff', padding: '20px 0' }}>
       <Container>
         <p>&copy; {new Date().getFullYear()} Eddie Sütcü</p>
-        {/* Lägg till annan footer-information här */}
       </Container>
     </footer>
   </>
