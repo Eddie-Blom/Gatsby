@@ -8,6 +8,7 @@ const useNavigation = () => {
           node {
             template
             url
+            rubrik
           }
         }
       }

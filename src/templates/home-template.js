@@ -33,8 +33,7 @@ const HomeTemplate = ({ rubrik, bild, innehall }) => {
     <div className="image-container">
       <GatsbyImage image={bild.gatsbyImageData} alt={rubrik} />
       <div className="content-overlay">
-        <h1 className="title display-1">{rubrik}</h1>
-        <div className="content lead">{renderRichText(innehall, options)}</div>
+        <h1 className="title display-4">{renderRichText(innehall, options)}</h1>
       </div>
     </div>
   )

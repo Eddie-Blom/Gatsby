@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import AboutTemplate from "../templates/about-template"
 import HomeTemplate from "../templates/home-template"
+import ContactTemplate from "../templates/contact-template"
 
 import Layout from "../components/layout"
 
@@ -12,6 +13,8 @@ const Page = props => {
     switch (contentfulPage.template) {
       case "about":
         return <AboutTemplate {...contentfulPage} />
+      case "contact":
+        return <ContactTemplate {...contentfulPage} />
       default:
         return <HomeTemplate {...contentfulPage} />
     }

@@ -1,0 +1,30 @@
+.contact-page {
+  padding: 50px 0;
+}
+
+.contact-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.contact-content {
+  margin-top: 20px;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.divCenteredText {
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}

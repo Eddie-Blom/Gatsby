@@ -1,24 +1,67 @@
-import * as React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/style.css';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from "gatsby";
-import useNavigation from "../hooks/use-navigation";
+import * as React from "react"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "../css/style.css"
+import { Navbar, Nav, Container } from "react-bootstrap"
+import { Link } from "gatsby"
+import useNavigation from "../hooks/use-navigation"
 
 const Layout = ({ children }) => {
-  const navigationLinks = useNavigation();
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
+          description
+          title
+        }
+      }
+    }
+  `)
+
+  const navigationLinks = useNavigation()
+
+  const additionalLink = {
+    node: {
+      url: "/portfolio",
+      template: "Portfolio",
+    },
+  }
 
   return (
     <>
-      <Navbar expand="lg" style={{ backgroundColor: '#333', color: '#fff', transition: 'background-color 0.3s ease-in-out' }}>
+      <Helmet>
+        <meta
+          name="author"
+          title={data.site.siteMetadata.title}
+          author={data.site.siteMetadata.author}
+          content={data.site.siteMetadata.description}
+        />
+      </Helmet>
+      <Navbar
+        expand="lg"
+        style={{
+          backgroundColor: "#333",
+          color: "#fff",
+          transition: "background-color 0.3s ease-in-out",
+        }}
+      >
         <Container>
-          <Navbar.Brand as={Link} to="/">Eddie´s Portfolio</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            Eddie´s Portfolio
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {navigationLinks.map(({ node }) => (
-                <Nav.Link key={node.url} as={Link} to={node.url}>{node.template}</Nav.Link>
+                <Nav.Link key={node.url} as={Link} to={node.url}>
+                  {node.rubrik}
+                </Nav.Link>
               ))}
+              <Nav.Link as={Link} to={additionalLink.node.url}>
+                {additionalLink.node.template}
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -26,13 +69,16 @@ const Layout = ({ children }) => {
 
       <main className="main-content">{children}</main>
 
-      <footer className="footer text-center" style={{ backgroundColor: '#333', color: '#fff', padding: '20px 0' }}>
+      <footer
+        className="footer text-center"
+        style={{ backgroundColor: "#333", color: "#fff", padding: "20px 0" }}
+      >
         <Container>
           <p>&copy; {new Date().getFullYear()} Eddie Sütcü</p>
         </Container>
       </footer>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
