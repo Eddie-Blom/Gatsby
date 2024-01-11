@@ -5,7 +5,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Container, Row, Col } from "react-bootstrap"
 import "../css/contact.css"
 
+// En React-komponent som representerar Contact-sidan
 const ContactTemplate = ({ rubrik, bild, innehall }) => {
+  // Konfiguration för att rendera rich text med vissa format
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <strong>{text}</strong>,
@@ -24,6 +26,7 @@ const ContactTemplate = ({ rubrik, bild, innehall }) => {
     },
   }
 
+  // Rendera Contact-sidan med hjälp av layout och Bootstrap-komponenter
   return (
     <div className="contact-page">
       <Container>

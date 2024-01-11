@@ -1,4 +1,3 @@
-/* Styla kortens titel och text */
 .card-title {
   font-size: 1.2rem;
   font-weight: bold;
@@ -9,17 +8,14 @@
   line-height: 1.4;
 }
 
-/* Justera länken för "Läs mer" */
 .card-body .btn-primary {
   margin-top: auto;
 }
 
-/* Gör alla kort lika stora */
 .row > .col {
   display: flex;
 }
 
-/* Justera höjden på kortens innehåll */
 .card {
   height: 100%;
 }

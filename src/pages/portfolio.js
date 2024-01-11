@@ -3,13 +3,15 @@ import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 
 import Layout from "../components/layout"
 import "../css/portfolio.css"
 
+// En React-komponent som representerar Portfolio-sidan
 const PortfolioPage = () => {
+  // Hämta data från GraphQL-query för att få portfolioinnehållet
   const data = useStaticQuery(graphql`
     query {
       allContentfulPortfolio {
@@ -30,9 +32,10 @@ const PortfolioPage = () => {
     }
   `)
 
+  // Konfiguration för att rendera rich text med vissa format
   const options = {
     renderMark: {
-      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+      [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
     },
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => {
@@ -44,11 +47,16 @@ const PortfolioPage = () => {
         )
       },
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <div className="divCenteredText"><h3>{children}</h3></div>
+        return (
+          <div className="divCenteredText">
+            <h3>{children}</h3>
+          </div>
+        )
       },
     },
   }
 
+  // Rendera Portfolio-sidan med hjälp av layout och Bootstrap-komponenter
   return (
     <Layout>
       <Container className="pb-4">
@@ -89,7 +97,6 @@ const PortfolioPage = () => {
     </Layout>
   )
 }
-
 export const Head = () => <title>Portfolio</title>
 
 export default PortfolioPage

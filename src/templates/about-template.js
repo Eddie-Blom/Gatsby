@@ -5,7 +5,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Container, Row, Col } from "react-bootstrap"
 import "../css/about.css"
 
+// En React-komponent som representerar About-sidan
 const AboutTemplate = ({ rubrik, bild, innehall }) => {
+  // Konfiguration för att rendera rich text med vissa format
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
@@ -29,6 +31,7 @@ const AboutTemplate = ({ rubrik, bild, innehall }) => {
     },
   }
 
+  // Rendera About-sidan med hjälp av layout och Bootstrap-komponenter
   return (
     <div className="about-page">
       <Container>

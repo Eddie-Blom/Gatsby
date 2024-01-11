@@ -1,11 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Container, Row, Col } from "react-bootstrap";
-import { GatsbyImage } from "gatsby-plugin-image";
-import Layout from "../components/layout";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
+import React from "react"
+import { graphql } from "gatsby"
+import { Container, Row, Col } from "react-bootstrap"
+import { GatsbyImage } from "gatsby-plugin-image"
+import Layout from "../components/layout"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 
+// GraphQL query för att hämta data för en specifik portfoliopost baserat på urlSlug
 export const query = graphql`
   query ($urlSlug: String!) {
     contentfulPortfolio(urlSlug: { eq: $urlSlug }) {
@@ -19,11 +20,14 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
+// React-komponent för att visa en enskild portfoliopost
 const PortfolioPost = ({ data }) => {
-  const { rubrik, fritext, bild } = data.contentfulPortfolio;
+  // Extrahera data från GraphQL-queryn
+  const { rubrik, fritext, bild } = data.contentfulPortfolio
 
+  // Konfiguration för att rendera rich text med vissa format
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <strong>{text}</strong>,
@@ -40,8 +44,9 @@ const PortfolioPost = ({ data }) => {
         </div>
       ),
     },
-  };
+  }
 
+  // Rendera layout och innehållet för portfolioposten
   return (
     <Layout>
       <Container>
@@ -60,9 +65,10 @@ const PortfolioPost = ({ data }) => {
         </Row>
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export const Head = () => <title>Portfolio Post</title>;
+// React-komponent för att sätta sidans titel i headern
+export const Head = () => <title>Portfolio Post</title>
 
-export default PortfolioPost;
+export default PortfolioPost
